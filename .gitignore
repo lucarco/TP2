@@ -1,0 +1,9 @@
+# Ignorar código compilado y carpetas de salida
+*.class
+/bin/
+/target/
+
+# Ignorar configuración específica de Eclipse
+.project
+.classpath
+.settings/
