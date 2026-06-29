@@ -1,0 +1,118 @@
+general
+=======
+
+- in general it is OK, for the next assignment fix all the comments that I mention below.
+
+- the moving towards fix point should use 'mtfp', and not 'mtcp' (I fixed it to run the command lines that I provided in README.md)
+
+model
+=====
+
+# Body.java:
+
+- a is not initialised, so you can get a null pointer exception, Bette use a = new Vector2D()
+
+	       if (m <= 0) {
+			a = a.scale(0);
+		} else {
+			a = f.scale(1.0 / m);
+		}
+
+> DONE
+
+# ForceLaws.java: ok
+
+# MassLosingBody.java:
+
+# MovingTowardsFixedPoint.java:
+
+- use for each loop instead of traversing with an index: for(Body b : bs) ...
+> DONE
+
+# NewtonUniversalGravitation.java:
+
+- use for each loop instead of traversing with an index: for(Body b : bs) ...
+> DONE
+
+# NoForce.java: ok
+
+# PhysicsSimulator.java:
+
+- use for each loop instead of traversing with an index (in several places): for(Body b : bs) ...
+
+- in addBody, instead of traversing the bodies list, defined method equals(Object) in Body.java and use contains(b)
+> DONE
+
+
+factories
+=========
+
+# BasicBodyBuilder.java: ok
+
+# Builder.java: ok
+
+# BuilderBasedFactory.java: 
+
+- maybe better throw and exception if no builder can create the object, but returning null is ok as well.
+
+> DONE
+# EpsilonEqualStatesBuilder.java:
+
+- the default value for eps is 0.0
+
+- you cannot modify info. Use a local variable "double eps=0.0" and change it info has a key eps
+
+> DONE
+# Factory.java: ok
+
+# MassEqualStatesBuilder.java: ok
+
+# MassLosingBodyBuilder.java: ok
+
+# MovingTowardsFixedPointBuilder.java:
+
+- the type tag should be 'mtfp', and not 'mtcp' (if you have used the command lines I provide, you would have discover it!).
+
+- you cannot modify info, use local variables "double g=9.81" and "Vector2D c = new Vector2D()" and modify the value if info has a corresponding parameter
+
+> DONE
+# NewtonUniversalGravitationBuilder.java:
+
+- you cannot modify info. Use a local variable "double G=6.67E-11" and change it info has a key "G"
+
+> DONE
+# NoForceBuilder.java: ok
+
+control
+=======
+
+# Controller.java:
+
+- in run, you print n-1 states, but the assignment statement requires n+1 (the initial, plus n states). Treat the initial state outside the loop. The state last advance is not printed.
+> DONE
+# EpsilonEqualStates.java:
+
+- better check if "time" is equal before checking all states, just to save time ...
+> DONE
+# MassEqualStates.java:
+
+- better check if "time" is equal before checking all states, just to save time ...
+> DONE
+# StateComparator.java: ok
+
+
+
+launcher
+========
+
+# Main.java:
+
+- instead of having two calls to run, in startBatchMode, use the if to set variable eos to null and after the 'if' use call cont.run(_steps, os, eos, sc);
+
+		if(_expectedOutFile == null) {
+			cont.run(_steps, os, null, sc);
+		} else {
+			eos = new FileInputStream(_expectedOutFile);
+			cont.run(_steps, os, eos, sc);
+		}
+> DONE

@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "\\resources",
+    "\\src",
+    "\\src\\extra",
+    "\\src\\simulator",
+    "\\src\\simulator\\control",
+    "\\src\\simulator\\factories",
+    "\\src\\simulator\\launcher",
+    "\\src\\simulator\\misc",
+    "\\src\\simulator\\model"
+  ],
+  "PreviewInSolutionExplorer": false
+}
